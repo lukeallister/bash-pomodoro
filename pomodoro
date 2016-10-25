@@ -9,7 +9,7 @@ didwhat=$(dialog --inputbox 'What did you do?' 0 0 2>&1 1>&3)
 exitcode=$?;
 exec 3>&-;
 #dialog --infobox " you said $didwhat " 10 30 ; sleep 4
-echo "`date +%Y-%m-%d    %H:%M:%S`    Task: $didwhat" >> pomodoro
+echo "`date +%D:%T`    Task: $didwhat" >> pomodoro
 runBreak
 }
 
