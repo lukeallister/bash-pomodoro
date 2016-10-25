@@ -9,7 +9,7 @@ didwhat=$(dialog --inputbox 'What did you do?' 0 0 2>&1 1>&3)
 exitcode=$?;
 exec 3>&-;
 #dialog --infobox " you said $didwhat " 10 30 ; sleep 4
-echo "`date +%Y-%m-%d`    Task: $didwhat" >> pomodoro
+echo "`date +%Y-%m-%d    %H:%M:%S`    Task: $didwhat" >> pomodoro
 runBreak
 }
 
@@ -37,7 +37,8 @@ date1=$((`date +%s` + seconds));
 
 while [ "$date1" -ge `date +%s` ];
 do
-  dialog --infobox "Nice work on:
+  dialog --infobox "Nice work; you did:
+
   $didwhat
 
   Now you're on break!
