@@ -3,6 +3,7 @@
 
 recordTomato () {
 notify-send "break"
+tomatoCount=$((tomatoCount+1))
 mpv /usr/share/sounds/freedesktop/stereo/message.oga
 exec 3>&1
 didwhat=$(dialog --inputbox 'What did you do?' 0 0 2>&1 1>&3)
@@ -42,11 +43,15 @@ do
   $didwhat
 
   Now you're on break!
-  rest for $(date -u --date @$(($date1 - `date +%s` )) +%H:%M:%S)" 0 0 ; sleep 1
+  rest for $(date -u --date @$(($date1 - `date +%s` )) +%H:%M:%S)
+
+  You've completed $tomatoCount tomatoes today." 0 0 ; sleep 1
 done
 notify-send "Start tomato"
 mpv /usr/share/sounds/freedesktop/stereo/message.oga
 runTomato
 }
+
+tomatoCount=0
 
 runTomato
